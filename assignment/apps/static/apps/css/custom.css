@@ -1,0 +1,31 @@
+.dboard {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.dboard li{
+    width: 50%;
+    float: left;
+}
+
+.dboard a {
+  background-color: #007bff;
+  box-shadow: 0 5px 0 rgb(168, 152, 152);
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 0 0 42px 0;
+  font-size: 30px;
+}
+
+label, textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+p span{
+  font-size: 18px;
+}
