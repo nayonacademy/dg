@@ -6,7 +6,7 @@ class Book(models.Model):
     description = models.TextField()
 
     def __str__(self):
-            return self.title
+            return str(self.title)
 
 
 class Author(models.Model):
@@ -15,12 +15,9 @@ class Author(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-            return self.first_name
+            return str(self.first_name)
 
 
 class BookAuthor(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-
-    def __str__(self):
-            return self.book

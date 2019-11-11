@@ -15,6 +15,11 @@
   <p> <span>Descriptions :</span> {{i.description}}</p>
   <p>  <span>Authors :</span> </p>
   {% endfor %}
+    <ul> 
+  {% for i in authors %}
+    <li> {{i.author.first_name}} {{i.author.last_name}}</li>
+  {% endfor %}
+  </ul> 
   </div>
 </main>
 {% endblock content %}

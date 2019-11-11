@@ -52,7 +52,8 @@ def allBooks(request):
 
 def book_details(request, id):
     books_list = Book.objects.filter(id=id)
-    return render(request, 'apps/book_details.html',{'books_list':books_list})
+    authors = BookAuthor.objects.filter(book__pk=id)
+    return render(request, 'apps/book_details.html',{'books_list':books_list, 'authors':authors })
 
 
 def allAuthors(request):
@@ -62,7 +63,8 @@ def allAuthors(request):
 
 def author_details(request, id):
     author_list = Author.objects.filter(id=id)
-    return render(request, 'apps/author_details.html',{'author_list':author_list})
+    books = BookAuthor.objects.filter(author__pk=id)
+    return render(request, 'apps/author_details.html',{'author_list':author_list, 'books':books})
 
 
 def addAuthor(request):
@@ -76,6 +78,19 @@ def addAuthor(request):
 
         form = AuthorForm()
         return render(request, 'apps/add_author.html',{'form': form}) 
+
+
+def authorBook(request):
+    if request.method == "POST":
+        form = AuthorBookForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.save()
+            return HttpResponseRedirect(reverse('dashboard'))
+    else:
+
+        form = AuthorBookForm()
+        return render(request, 'apps/author_book.html',{'form': form}) 
 
 
 def logout_view(request):

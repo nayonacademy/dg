@@ -15,6 +15,11 @@
   <p> <span>Notes :</span> {{i.notes}}</p>
   <p>  <span>Books :</span> </p>
   {% endfor %}
+    <ul> 
+  {% for i in books %}
+    <li> {{i.book}} </li>
+  {% endfor %}
+  </ul> 
   </div>
 </main>
 {% endblock content %}
